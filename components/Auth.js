@@ -12,28 +12,35 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
 
   const login = async () => {
-    await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}api/auth/jwt/create/`, {
-      method: "POST",
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.status === 400) {
-          throw "authentication failed";
-        } else if (res.ok) {
-          return res.json();
+    try {
+      await fetch(
+        `${process.env.NEXT_PUBLIC_RESTAPI_URL}api/auth/jwt/create/`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      })
-      .then((data) => {
-        const options = { path: "/" };
-        cookie.set("access_token", data.access, options);
-      });
-    router.push("/main-page");
+      )
+        .then((res) => {
+          if (res.status === 400) {
+            throw "authentication failed";
+          } else if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          const options = { path: "/" };
+          cookie.set("access_token", data.access, options);
+        });
+      router.push("/main-page");
+    } catch (err) {
+      alert(err);
+    }
   };
 
   return (
