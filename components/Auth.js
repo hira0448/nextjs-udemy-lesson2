@@ -76,7 +76,7 @@ export default function Auth() {
           alt="Workflow"
         />
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
-          Sign in to your account
+          {isLogin ? "Login" : "Sign up"}
         </h2>
       </div>
       <form className="mt-8 space-y-6" action="#" method="POST">
