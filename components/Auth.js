@@ -135,7 +135,7 @@ export default function Auth() {
                 aria-hidden="true"
               />
             </span>
-            Sign in
+            {isLogin ? "Login with JWT" : "Create new user"}
           </button>
         </div>
       </form>
