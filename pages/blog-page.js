@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
+import { getAllPostsData } from "../lib/posts";
 
 export default function BlogPage() {
   return (
@@ -23,4 +24,11 @@ export default function BlogPage() {
       </Link>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const filteredPosts = await getAllPostsData();
+  return {
+    props: { filteredPosts },
+  };
 }
