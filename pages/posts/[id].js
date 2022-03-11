@@ -38,3 +38,12 @@ export default function Post({ post }) {
     </Layout>
   );
 }
+
+export async function getStaticPaths() {
+  const paths = await getAllPostIds();
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
