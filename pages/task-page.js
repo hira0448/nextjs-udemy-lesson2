@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
 import Task from "../components/Task";
+import { getAllTasksData } from "../lib/tasks";
 
 export default function TaskPage({ staticfilterdTasks }) {
   return (
