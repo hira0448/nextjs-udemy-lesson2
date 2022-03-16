@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
 
-export default function TaskPage() {
+export default function TaskPage({ staticfilterdTasks }) {
   return (
     <Layout title="Task page">
       <Link href="/main-page" passHref>
