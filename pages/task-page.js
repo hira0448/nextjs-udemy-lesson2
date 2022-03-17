@@ -5,6 +5,7 @@ import { getAllTasksData } from "../lib/tasks";
 import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
+const apiUrl = `${process.env.NEXT_PUBLIC_RESTAPI_URL}api/list-task`;
 
 export default function TaskPage({ staticfilterdTasks }) {
   return (
