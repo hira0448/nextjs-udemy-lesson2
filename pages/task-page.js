@@ -2,6 +2,9 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import Task from "../components/Task";
 import { getAllTasksData } from "../lib/tasks";
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function TaskPage({ staticfilterdTasks }) {
   return (
