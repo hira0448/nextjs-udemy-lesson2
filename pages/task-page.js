@@ -8,6 +8,10 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const apiUrl = `${process.env.NEXT_PUBLIC_RESTAPI_URL}api/list-task`;
 
 export default function TaskPage({ staticfilterdTasks }) {
+  const { data: tasks, mutate } = useSWR(apiUrl, fetcher, {
+    fallbackData: staticfilterdTasks,
+  });
+
   return (
     <Layout title="Task page">
       <ul>
