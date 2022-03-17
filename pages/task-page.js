@@ -18,8 +18,8 @@ export default function TaskPage({ staticfilterdTasks }) {
   return (
     <Layout title="Task page">
       <ul>
-        {staticfilterdTasks &&
-          staticfilterdTasks.map((task) => <Task key={task.id} task={task} />)}
+        {filteredTasks &&
+          filteredTasks.map((task) => <Task key={task.id} task={task} />)}
       </ul>
       <Link href="/main-page" passHref>
         <div className="flex cursor-pointer mt-12">
