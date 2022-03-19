@@ -3,6 +3,7 @@ import Link from "next/link";
 import Task from "../components/Task";
 import { getAllTasksData } from "../lib/tasks";
 import useSWR from "swr";
+import { useEffect } from "react/cjs/react.production.min";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const apiUrl = `${process.env.NEXT_PUBLIC_RESTAPI_URL}api/list-task`;
@@ -14,6 +15,9 @@ export default function TaskPage({ staticfilterdTasks }) {
   const filteredTasks = tasks?.sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
+  useEffect(() => {
+    mutate();
+  }, []);
 
   return (
     <Layout title="Task page">
