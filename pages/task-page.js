@@ -51,5 +51,6 @@ export async function getStaticProps() {
 
   return {
     props: { staticfilterdTasks },
+    revalidate: 3,
   };
 }
