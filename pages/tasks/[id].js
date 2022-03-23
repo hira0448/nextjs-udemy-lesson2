@@ -7,6 +7,15 @@ import { getAllTasksIds, getTaskData } from "../../lib/tasks";
 
 const fetcher = (url) => fetcher(url).then((res) => res.json());
 
+export default function Post({ staticTask, id }) {
+  const router = useRouter();
+  const { data: task, mutate } = useSWR(
+    `${process.env.NEXT_PUBLIC_RESTAPI_URL}api/detail-task/${id}`,
+    fetcher,
+    { initialData: staticTask }
+  );
+}
+
 export async function getStaticPaths() {
   const paths = await getAllTasksIds();
 
