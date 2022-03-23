@@ -17,6 +17,9 @@ export default function Post({ staticTask, id }) {
   useEffect(() => {
     mutate();
   }, []);
+  if (router.isFallback || !task) {
+    return <div>Loading...</div>;
+  }
 }
 
 export async function getStaticPaths() {
