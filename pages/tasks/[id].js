@@ -13,3 +13,15 @@ export async function getStaticPaths() {
     fallback: true,
   };
 }
+
+export async function getStaticProps({ params }) {
+  const { task: staticTask } = await getTaskData(params.id);
+
+  return {
+    props: {
+      id: staticTask.id,
+      staticTask,
+    },
+    revalidate: 3,
+  };
+}
