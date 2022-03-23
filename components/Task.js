@@ -1,4 +1,7 @@
 import Link from "next/link";
+import Cookies from "universal-cookie";
+
+const cookie = new Cookies();
 
 export default function Task({ task }) {
   return (
