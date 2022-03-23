@@ -14,6 +14,9 @@ export default function Post({ staticTask, id }) {
     fetcher,
     { initialData: staticTask }
   );
+  useEffect(() => {
+    mutate();
+  }, []);
 }
 
 export async function getStaticPaths() {
