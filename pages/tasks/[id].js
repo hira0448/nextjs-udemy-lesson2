@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { getAllTasksIds, getTaskData } from "../../lib/tasks";
 
+const fetcher = (url) => fetcher(url).then((res) => res.json());
+
 export async function getStaticPaths() {
   const paths = await getAllTasksIds();
 
