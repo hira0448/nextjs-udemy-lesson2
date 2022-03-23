@@ -20,6 +20,14 @@ export default function Post({ staticTask, id }) {
   if (router.isFallback || !task) {
     return <div>Loading...</div>;
   }
+  return (
+    <Layout title={task.title}>
+      <span className="mb-4">
+        {"ID : "}
+        {task.id}
+      </span>
+    </Layout>
+  );
 }
 
 export async function getStaticPaths() {
