@@ -4,3 +4,12 @@ import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { getAllTasksIds, getTaskData } from "../../lib/tasks";
+
+export async function getStaticPaths() {
+  const paths = await getAllTasksIds();
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
