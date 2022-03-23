@@ -26,6 +26,8 @@ export default function Post({ staticTask, id }) {
         {"ID : "}
         {task.id}
       </span>
+      <p className="mb-4 text-xl font-bold">{task.title}</p>
+      <p className="mb-12">{task.created_at}</p>
     </Layout>
   );
 }
