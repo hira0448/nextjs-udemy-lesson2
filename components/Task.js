@@ -11,6 +11,10 @@ export default function Task({ task }) {
         "Content-Type": "application/json",
         Authrization: `JWT ${cookies.get("access_token")}`,
       },
+    }).then((res) => {
+      if (res.status === 401) {
+        alert("JWT Token not valid");
+      }
     });
   };
 
