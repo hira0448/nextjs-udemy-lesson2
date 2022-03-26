@@ -22,4 +22,6 @@ const create = async (e) => {
       alert("JWT Taken not valid");
     }
   });
+  setSelectedTask({ id: 0, title: "" });
+  taskCreated();
 };
