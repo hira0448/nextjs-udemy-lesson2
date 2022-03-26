@@ -17,5 +17,9 @@ const create = async (e) => {
       "Content-Type": "application/json",
       Authorization: `JWT ${cookie.get("access_token")}`,
     },
+  }).then((res) => {
+    if (res.status === 401) {
+      alert("JWT Taken not valid");
+    }
   });
 };
