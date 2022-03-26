@@ -3,3 +3,7 @@ import { StateContext } from "../context/StateContext";
 import Cookies from "universal-cookie";
 
 const cookie = new Cookies();
+
+export default function TaskForm({ taskCreated }) {
+  const { SelectedTask, setSelectedTask } = useContext(StateContext);
+}
