@@ -33,6 +33,7 @@ export default function Task({ task, taskDelete }) {
       </Link>
       <div className="float-right ml-20">
         <svg
+          onClick={() => setSelectedTask(task)}
           className="w-6 h-6 float-left cursor-pointer"
           fill="currentColor"
           viewBox="0 0 20 20"
