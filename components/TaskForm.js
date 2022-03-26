@@ -7,3 +7,7 @@ const cookie = new Cookies();
 export default function TaskForm({ taskCreated }) {
   const { SelectedTask, setSelectedTask } = useContext(StateContext);
 }
+
+const create = async (e) => {
+  e.preventDefault();
+};
