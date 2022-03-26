@@ -10,4 +10,12 @@ export default function TaskForm({ taskCreated }) {
 
 const create = async (e) => {
   e.preventDefault();
+  await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}api/tasks`, {
+    method: "POST",
+    body: JSON.stringify({ title: SelectedTask.title }),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${cookie.get("access_token")}`,
+    },
+  });
 };
