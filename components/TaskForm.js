@@ -28,4 +28,17 @@ const create = async (e) => {
 
 const update = async (e) => {
   e.preventDefault();
+  await fetch(
+    `${process.env.NEXT_PUBLIC_RESTAPI_URL}api/tasks/${selectedTask.id}/`,
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        title: selectedTask.title,
+      }),
+      headers: {
+        "Context-Type": "application/json",
+        Authorization: `JWT ${cookie.get("access_token")}`,
+      },
+    }
+  );
 };
