@@ -40,5 +40,11 @@ const update = async (e) => {
         Authorization: `JWT ${cookie.get("access_token")}`,
       },
     }
-  );
+  ).then((res) => {
+    if (res.status === 401) {
+      alert("JWT Taken not valid");
+    }
+  });
+  setSelectedTask({ id: 0, title: "" });
+  taskCreated();
 };
