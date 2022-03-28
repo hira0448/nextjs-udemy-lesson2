@@ -25,3 +25,7 @@ const create = async (e) => {
   setSelectedTask({ id: 0, title: "" });
   taskCreated();
 };
+
+const update = async (e) => {
+  e.preventDefault();
+};
