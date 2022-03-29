@@ -57,6 +57,12 @@ export default function TaskForm({ taskCreated }) {
             setSelectedTask({ ...setSelectedTask, title: e.target.value })
           }
         />
+        <button
+          type="submit"
+          className="bg-gray-500 hover:bg-gray-600 text-sm px-2 py-1 rounded uppercase"
+        >
+          {selectedTask.id !== 0 ? "update" : "create"}
+        </button>
       </form>
     </div>
   );
